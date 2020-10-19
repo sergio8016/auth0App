@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <span>Auth0 App</span>
+  <span class="example-spacer"></span>
+  <ng-template #loggedOut>
+    <button
+      class="navbar-link"
+      mat-raised-button
+      (click)="auth.loginWithRedirect()"
+    >
+      <mat-icon>login</mat-icon>
+      <span>Log in</span>
+    </button>
+  </ng-template>
+
+  <button class="navbar-link" mat-raised-button routerLink="home" routerLinkActive="active">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </button>
+  <button class="navbar-link" mat-raised-button routerLink="prices" routerLinkActive="active">
+    <mat-icon>monetization_on</mat-icon>
+    <span>Prices</span>
+  </button>
+  <button
+    class="navbar-link"
+    mat-raised-button
+    routerLink="protected"
+    routerLinkActive="active"
+    *ngIf="auth.isAuthenticated$ | async;"
+  >
+    <mat-icon>lock</mat-icon>
+    <span>Protected</span>
+  </button>
+  <button
+    class="navbar-link"
+    mat-raised-button
+    (click)="auth.logout({ returnTo: document.location.origin })"
+    *ngIf="auth.isAuthenticated$ | async; else loggedOut"
+  >
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-toolbar>

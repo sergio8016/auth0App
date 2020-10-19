@@ -1,0 +1,21 @@
+::ng-deep {
+  mat-card {
+    width: 50% !important;
+    margin: 30px auto;
+    text-align: center;
+
+    .mat-card-header {
+      text-align: center !important;
+
+      .mat-card-header-text {
+        width: 100%;
+      }
+    }
+
+    .mat-card-header-text {
+      margin: 0 !important;
+    }
+  }
+
+
+}

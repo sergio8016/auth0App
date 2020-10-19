@@ -1,0 +1,16 @@
+
+.navbar-link {
+  margin-right: 10px;
+
+  mat-icon {
+    margin-right: 5px;
+  }
+
+  &.active {
+    color: #00c853;
+
+    mat-icon {
+      color: #00c853
+    }
+  }
+}
